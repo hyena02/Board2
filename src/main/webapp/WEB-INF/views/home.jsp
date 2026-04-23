@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+<link href="/css/common.css" rel="stylesheet"/>
 </head>
 <body>
   <main>
@@ -13,6 +15,5 @@
     <div><a href="/Menus/WriteForm">새 메뉴추가</a></div>
     <div><a href="/Menus/List">메뉴목록</a></div>  
   </main>
-  
 </body>
 </html>
