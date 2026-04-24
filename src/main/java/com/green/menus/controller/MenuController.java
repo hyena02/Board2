@@ -26,8 +26,38 @@ public class MenuController {
 		model.addAttribute("msg","하하");
 		model.addAttribute("menuList",menuList);
 		
+		return "menus/list";  //WEB-INF/views/menus/list.jsp
+	}
+
+	// /Menus/WriteForm
+	@RequestMapping("/Menus/WriteForm")
+	public String writeForm() {
+		
+		return "menus/write";   //write.jsp 로 이동한다.
+			
+	}
+	//Menus/Wirte
+	//http://localhost:8080/Menus/Write?menu_id=MENU04&menu_name=GIT&menu_seq=4
+	//http://localhost:8080/Menus/Write?menu_id=MENU04&menu_name=GIT&menu_seq=4
+	@RequestMapping("/Menus/Write")
+	//public String write(String menu_id, String menu_name, int menu_seq) {
+	public String write(MenuDTO menuDTO, Model model) {
+		
+		// 넘어온 값
+		System.out.println("menu_id=" + menuDTO.getMenu_id());
+		System.out.println("menu_name=" + menuDTO.getMenu_name());
+		System.out.println("menu_seq=" + menuDTO.getMenu_seq());
+		
+		//DB 에 저장(menuMapper)
+		menuMapper.insertMenu(menuDTO);
+		
+		//다시 조회 -> 결과를 menuList
+		List<MenuDTO >menuList = menuMapper.getMenuList();
+		model.addAttribute("menuList", menuList);
+		
 		return "menus/list";
 	}
+	
 }
 
 

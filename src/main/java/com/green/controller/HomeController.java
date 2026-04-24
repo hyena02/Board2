@@ -6,13 +6,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HomeController {
-	
+
 	// http://localhost:8080
 	@RequestMapping("/")
 	public  String  home( ) {
+		System.out.println("첫페이지");
+		System.out.println("고쳐졌다");
 		return  "home";   // jsp 파일을 찾는다
+							// /WEB-INF/views/home.jsp
 	}
-	
+
 	// http://localhost:8080/test
 	@RequestMapping("/test")
 	@ResponseBody              // 서버가 data(html) 을 내려보낸다

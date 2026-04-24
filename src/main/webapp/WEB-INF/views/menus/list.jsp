@@ -34,8 +34,8 @@
 	  	  <td> ${menu.menu_id}</td>
 	  	  <td> ${menu.menu_name}</td>
 	  	  <td> ${menu.menu_seq}</td>
-	  	  <td><a href="">삭제</a></td>
-	  	  <td><a href="">수정</a></td>
+	  	  <td><a href="/Menus/Delete">삭제</a></td>
+	  	  <td><a href="/Menus/Update">수정</a></td>
 	  	</tr>
 	  	</c:forEach>
 	  	
