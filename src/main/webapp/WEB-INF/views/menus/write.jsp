@@ -8,6 +8,29 @@
 <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
 <link href="/css/common.css" rel="stylesheet"/>
 <style>
+	table {width : 100%}
+	td {
+		padding : 5px 10px;
+		text-align : center;
+		& nth-of-type(1)
+			{
+			background: black;
+			color : white;
+			border : 1px solid white;
+			}
+	}
+	tr : last-chile > td {
+		background: white;
+		border : 1px solid white;	
+	}
+	
+	input[type=text],input[type=submit] {
+		width : 100%;
+	}
+	input[type=submit],input[type=button] {
+		width : 100%;
+	}
+		
 </style>
 </head>
 <body>

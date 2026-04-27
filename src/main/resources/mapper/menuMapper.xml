@@ -19,4 +19,8 @@
   INSERT INTO MENUS (MENU_ID, MENU_NAME, MENU_SEQ)
     VALUES( #{menu_id}, #{menu_name}, #{menu_seq})
   </insert>
+  <delete id="deleteMenu">
+  DELETE FROM MENUS
+  WHERE menu_id = #{menu_id}
+  </delete>
 </mapper>

@@ -12,7 +12,11 @@ import com.green.menus.mapper.MenuMapper;
 
 @Controller
 public class MenuController {
-	
+	// @Autowired : Spring Container 에 미리 new된 Component를 찾아서
+	// menuMapper 변수에 저장
+	// @Autowired()- 객체 타입으로 찾아서 연결
+	// @Qulified() - 객체 이름으로 찾아서 연결
+	// 최근기법은 생성자를 이용한 방식으로 변화함 (DI 필요한 곳이면 다 생성자 주입)
 	@Autowired
 	private  MenuMapper  menuMapper;
 	
@@ -51,12 +55,39 @@ public class MenuController {
 		//DB 에 저장(menuMapper)
 		menuMapper.insertMenu(menuDTO);
 		
+		return "redirect:/Menus/List";
+		
 		//다시 조회 -> 결과를 menuList
 		List<MenuDTO >menuList = menuMapper.getMenuList();
 		model.addAttribute("menuList", menuList);
 		
 		return "menus/list";
 	}
+	
+	
+	//
+	// /Menus/Delete
+	@RequestMapping("/Menus/Delete")
+	public String delete(MenuDTO menuDTO) {
+		System.out.println("삭제 대상 : "+menuDTO);
+		
+	
+		// db 에서 삭제
+		menuMapper.deleteMenu( menuDTO ); // MyBatis mapper 에는 menuDTO를 전달한다  
+		return "redirect:/menus/delete";
+	}
+	
+	@RequestMapping("/Menus/UpdateForm")
+	public String updateForm(MenuDTO menuDTO) {
+		System.out.println("넘어온 menuDTO : " + menuDTO);
+		//수정할 자료를 db 에서 검색
+		MenuDTO menu = menuMapper.getMenu(menuDTO);
+		model.addAttribute("menu", menu);
+		return "menus/update";
+	}
+	
+	
+	
 	
 }
 
